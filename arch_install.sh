@@ -311,7 +311,7 @@ case $SCRIPT_ID in
     echo 'press enter to continue...'
     read NOTHING
     sudo nano /etc/timeshift.json
-    sudo timeshift --target $TS_TARGET
+    sudo timeshift --target $TS_TARGET #make timeshift optional
     sudo timeshift --check
     sudo timeshift --list-snapshots
     echo 'Does this list of snapshots look good?'
@@ -326,14 +326,14 @@ case $SCRIPT_ID in
     yay -S nerd-fonts-complete
     ln -s /usr/share/zsh-theme-powerlevel10k .oh-my-zsh/themes/powerlevel10k
     echo 'enter "powerlevel10k/powerlevel10k" into ZSH_THEME field in .zshrc'
-    echo 'press enter to continue...'
+    echo 'press enter to continue...' #needs work, nerd fonts come different now
     read NOTHING
     nano .zshrc
 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
     echo 'enter zsh-autosuggestions into plugins field in .zshrc'
-    echo 'press enter to continue...'
+    echo 'press enter to continue...' #add more plugins zsh autocomplete zsh-syntax-highlighting
     read NOTHING
     nano .zshrc
 
@@ -341,7 +341,7 @@ case $SCRIPT_ID in
 
     echo 'uncomment GRUB_THEME field and enter '
     echo '"/usr/share/grub/themes/Vimix/theme.txt" in /etc/default/grub'
-    echo 'press enter to continue...'
+    echo 'press enter to continue...' #changs so vimix theme lives on /boot
     read NOTHING
     sudo nano /etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -359,6 +359,8 @@ case $SCRIPT_ID in
       sudo grub-mkconfig -o /boot/grub/grub.cfg
       sudo pacman -S docker-compose
     fi
+
+    # add optional addition of kde plasma +sddm +themeing
 
 
     echo 'fix any boot errors such as no irq handler et al. then grub-mkconfig -o /boot/grub/grub.cfg '
