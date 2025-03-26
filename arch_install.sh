@@ -288,6 +288,9 @@ case $SCRIPT_ID in
     echo "Is this computer going to one of the kube cluster: true or false"
     read IS_KUBE
 
+    #get the user to adjust pacman paralell downloads too
+
+
     cd ~
     sudo pacman -S git grub-theme-vimix screenfetch zsh-theme-powerlevel10k lm_sensors
     mkdir aur_repos
